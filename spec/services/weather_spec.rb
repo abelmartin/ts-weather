@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe Weather do
   subject { described_class }
 
-  describe '.get_forecase' do
+  describe '.get_forecast' do
     let(:address) { '1600 Amphitheatre Parkway, Mountain View, CA' }
 
     it 'returns the weather' do
-      expect(subject.get_weather(address)).to be
+      expect(subject.get_forecast(address)).to eq(90)
     end
   end
 end

@@ -26,14 +26,17 @@ gem 'foreman'
 gem 'geocoder'
 
 group :development, :test do
+  #for environment variables
+  gem 'dotenv-rails'
+
+  #ensure our tests don't make real requests
+  gem 'webmock'
+
   #debugger
   gem 'pry-byebug'
 
   #for testing
   gem 'rspec-rails'
-
-  #for environment variables
-  gem 'dotenv-rails'
 end
 
 group :development do
