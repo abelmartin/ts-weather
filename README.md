@@ -8,6 +8,19 @@ My solution for a programming challenge
 * Cache the forecast details for 30 minutes for all subsequent requests by zip codes.
 * Display indicator if result is pulled from cache.
 
+## Usage
+As the prompt requires, once the service is running you can enter:
+* an address
+* city & state
+* city & country
+
+... and the app will return:
+* current temperature
+* high/low
+* extended forcast
+
+It will also cache responses for 30 mins per zip code.
+
 ## API
 ### Weather
 * Weather will be pulled from [NOAA](https://www.weather.gov/documentation/services-web-api).  This works well as NOAA provides this services for free.  There's a rate limit but [as the API's page states](https://www.weather.gov/documentation/services-web-api#:~:text=The%20rate%20limit,are%20not%20likely.):
@@ -17,10 +30,11 @@ The rate limit is not public information, but allows a generous amount for typic
 
 ## Additional gems added beyond standard Rails gems
 ### Address validation
-* [geocoder](https://rubygems.org/gems/pry-byebug) - I'll ensure the address passed in is valid before I make the call to NOAA
+* [geocoder](https://rubygems.org/gems/geocoder) - I'll ensure the address passed in is valid before I make the call to NOAA
 
 ### Testing 
 * [rspec-rails](https://rubygems.org/gems/rspec-rails) - RSpec has become a standard in the Rails community and is my favoritee unit testing library
+* [webmock](https://rubygems.org/gems/webmock) - Webmock ensures that no network requests are allowed during test runs.
 
 ### Debugging
 * [pry-byebug](https://rubygems.org/gems/pry-byebug) - Helpful for setting breakpoints while building the solution

@@ -1,7 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Weather do
-  subject { described_class.new }
+  subject { described_class }
 
-  it { expect(1).to eql(1) }
+  describe '.get_forecase' do
+    let(:address) { '1600 Amphitheatre Parkway, Mountain View, CA' }
+
+    it 'returns the weather' do
+      expect(subject.get_weather(address)).to be
+    end
+  end
 end
