@@ -21,21 +21,13 @@ As the prompt requires, once the service is running you can enter:
 
 It will also cache responses for 30 mins per zip code.
 
-## API
-### Weather
-* Weather will be pulled from [NOAA](https://www.weather.gov/documentation/services-web-api).  This works well as NOAA provides this services for free.  There's a rate limit but [as the API's page states](https://www.weather.gov/documentation/services-web-api#:~:text=The%20rate%20limit,are%20not%20likely.):
-```
-The rate limit is not public information, but allows a generous amount for typical use. If the rate limit is execeed a request will return with an error, and may be retried after the limit clears (typically within 5 seconds). Proxies are more likely to reach the limit, whereas requests directly from clients are not likely.
-```
-
 ## Additional gems added beyond standard Rails gems
-### Address validation
-* [geocoder](https://www.rubygeocoder.com/) - I'll ensure the address passed in is valid before I make the call to NOAA
 
-### Network calls
-* [faraday](https://lostisland.github.io/faraday) - A superior networking library than the standard Net::HTTP
-* [faraday-follow_redirects](https://rubygems.org/gems/faraday-follow_redirects) - Allows for the automatic following of redirects.
-  * In our calls to NOAA which require geopoints, if the geopoints are too specific, the response will redirect.
+### Weather forecast gem
+* [openweathermap](https://rubygems.org/gems/openweathermap) - Provides a clean way to get forecast data from [OpenWeatherMap](https://openweathermap.org/)'s API.  OpenWeatherMap's call limits on the [free tier are very flexible](https://openweathermap.org/price#:~:text=60%20calls/minute%0A1%2C000%2C000%20calls/month)
+
+### Address validation
+* [geocoder](https://www.rubygeocoder.com/) - I'll ensure the address passed in is valid before I make the call to OpenWeatherMap
 
 ### Testing 
 * [rspec-rails](https://rubygems.org/gems/rspec-rails) - RSpec has become a standard in the Rails community and is my favoritee unit testing library
