@@ -40,7 +40,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'error_highlight', '>= 0.4.0', platforms: [:ruby]
+  gem 'rubocop', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
-  gem 'error_highlight', '>= 0.4.0', platforms: [:ruby]
 end
