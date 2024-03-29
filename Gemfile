@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '3.2.3'
 
+gem 'importmap-rails'
+gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
 gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
-gem 'puma', '>= 5.0'
-gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
@@ -14,10 +16,10 @@ gem 'turbo-rails'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 
+gem 'bootsnap', require: false
 gem 'jbuilder'
 gem 'redis', '>= 4.0.1'
-gem 'tzinfo-data', platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
-gem 'bootsnap', require: false
+gem 'tzinfo-data', platforms: %i[mswin mswin64 mingw x64_mingw jruby]
 
 # spinning up our server locally and on Heroku
 gem 'foreman'
@@ -26,16 +28,16 @@ gem 'foreman'
 gem 'geocoder'
 
 group :development, :test do
-  #for environment variables
+  # for environment variables
   gem 'dotenv-rails'
 
-  #ensure our tests don't make real requests
+  # ensure our tests don't make real requests
   gem 'webmock'
 
-  #debugger
+  # debugger
   gem 'pry-byebug'
 
-  #for testing
+  # for testing
   gem 'rspec-rails'
 end
 
