@@ -30,7 +30,7 @@ The rate limit is not public information, but allows a generous amount for typic
 
 ## Additional gems added beyond standard Rails gems
 ### Address validation
-* [geocoder](https://rubygems.org/gems/geocoder) - I'll ensure the address passed in is valid before I make the call to NOAA
+* [geocoder](https://www.rubygeocoder.com/) - I'll ensure the address passed in is valid before I make the call to NOAA
 
 ### Testing 
 * [rspec-rails](https://rubygems.org/gems/rspec-rails) - RSpec has become a standard in the Rails community and is my favoritee unit testing library

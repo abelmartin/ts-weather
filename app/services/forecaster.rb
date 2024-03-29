@@ -1,4 +1,4 @@
-class Weather
+class Forecaster
   URI = URI('https://api.weather.gov/points/')
   # https://api.weather.gov/points/{lat},{lon}
   def self.get_forecast(address)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Weather do
+RSpec.describe Forecaster do
   subject { described_class }
 
   describe '.get_forecast' do
