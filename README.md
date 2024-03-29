@@ -32,6 +32,11 @@ The rate limit is not public information, but allows a generous amount for typic
 ### Address validation
 * [geocoder](https://www.rubygeocoder.com/) - I'll ensure the address passed in is valid before I make the call to NOAA
 
+### Network calls
+* [faraday](https://lostisland.github.io/faraday) - A superior networking library than the standard Net::HTTP
+* [faraday-follow_redirects](https://rubygems.org/gems/faraday-follow_redirects) - Allows for the automatic following of redirects.
+  * In our calls to NOAA which require geopoints, if the geopoints are too specific, the response will redirect.
+
 ### Testing 
 * [rspec-rails](https://rubygems.org/gems/rspec-rails) - RSpec has become a standard in the Rails community and is my favoritee unit testing library
 * [webmock](https://rubygems.org/gems/webmock) - Webmock ensures that no network requests are allowed during test runs.

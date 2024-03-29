@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 ruby '3.2.3'
 
 gem 'importmap-rails'
+gem 'faraday'
+gem 'faraday-follow_redirects'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
 gem 'sprockets-rails'
