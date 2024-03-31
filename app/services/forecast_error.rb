@@ -1,5 +1,5 @@
 class ForecastError < StandardError
-  def initialize(msg = 'Invalid location')
+  def initialize(msg = 'Error fetching forecast')
     super
   end
 end

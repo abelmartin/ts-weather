@@ -12,4 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ #form_button
  */
+
+ #address{
+  width: 300px;
+ }
+
+ input{
+  height: 3em;
+ }
