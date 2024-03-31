@@ -101,17 +101,14 @@ GEM
     drb (2.2.1)
     error_highlight (0.6.0)
     erubi (1.12.0)
-    faraday (2.9.0)
-      faraday-net_http (>= 2.0, < 3.2)
-    faraday-follow_redirects (0.3.0)
-      faraday (>= 1, < 3)
-    faraday-net_http (3.1.0)
-      net-http
     foreman (0.87.2)
     geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -140,9 +137,8 @@ GEM
     mini_mime (1.1.5)
     minitest (5.22.3)
     msgpack (1.7.2)
+    multi_xml (0.6.0)
     mutex_m (0.2.0)
-    net-http (0.4.1)
-      uri
     net-imap (0.4.10)
       date
       net-protocol
@@ -213,6 +209,11 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.1.0)
+    raygun4ruby (3.2.6)
+      concurrent-ruby
+      httparty (> 0.13.7)
+      json
+      rack
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
     redis (5.1.0)
@@ -275,7 +276,6 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
-    uri (0.13.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -300,8 +300,6 @@ DEPENDENCIES
   bootsnap
   dotenv-rails
   error_highlight (>= 0.4.0)
-  faraday
-  faraday-follow_redirects
   foreman
   geocoder
   importmap-rails
@@ -310,6 +308,7 @@ DEPENDENCIES
   pry-byebug
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
+  raygun4ruby
   redis (>= 4.0.1)
   rspec-rails
   rubocop
