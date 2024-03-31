@@ -1,5 +1,5 @@
 # README
-My solution for a programming challenge
+My solution for a programming challenge.  [Try it out here](https://ts-weather-b615badbc0fe.herokuapp.com/)
 
 ## The prompt
 * Accept an address as input
