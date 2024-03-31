@@ -41,19 +41,26 @@ It will also cache responses for 30 mins per zip code.
 ** I have `Procfile` for Heroku and `Procfile.dev` for my local environment.
 * [dotenv-rails](https://rubygems.org/gems/dotenv-rails) - Useful to load environment variables from my .env file.
 
+### Caching
+* [redis](https://rubygems.org/gems/redis) - Using Redis to store my cached weather calls.  [Redis' TTL](https://redis.io/commands/ttl/) method allows me to easily get the expiration time of the cached data.
+
 ## Get started
 
 1. Install Ruby 3.x
 
 - I'm using the latest version of Ruby, but any version of Ruby 3 should work.
 
-2. Install Bundler
+2. Install Redis
+
+- Required for caching
+
+3. Install Bundler
 ```
 gem install bundler
 ```
-3. Run `bundle install`
+4. Run `bundle install`
 - This will install all required gems for the app.
-4. Run `foreman start -f Procfile.dev`
+5. Run `foreman start -f Procfile.dev`
 
 ## Running the test suite
 
