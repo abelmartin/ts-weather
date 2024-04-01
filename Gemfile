@@ -39,6 +39,7 @@ group :development, :test do
 
   # debugger
   gem 'pry-byebug'
+  gem 'pry-remote'
 
   # for testing
   gem 'rspec-rails'

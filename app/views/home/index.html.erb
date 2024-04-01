@@ -1,4 +1,6 @@
-<h1>TS Weather Forcaster</h1>
+<h1 id='title'>
+  <a href='/'>TS Weather Forcaster</a>
+</h1>
 <p>
   Welcome to the TS Weather Forcaster.  
   <br>
@@ -10,3 +12,15 @@
     <input type='submit' id='form_button' value='Get Weather' />
   </form>
 </p>
+<% if @forecast %>
+  <h2><%= @forecast[:location] %></h2>
+  <% @forecast[:days].each do |day|%>
+    <div class='day'>
+      <h3><%= day.description%> <%= day.emoji %></h3>
+      <p>Time: <%= day.time %></p>
+      <p>Temprature:<%= day.temperature %></p>
+      <p>Max: <%= day.temp_max %></p>
+      <p>Min: <%= day.temp_min %></p>
+    </div>
+    <% end %>
+<% end %>

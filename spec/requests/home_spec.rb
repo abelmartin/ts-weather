@@ -17,6 +17,14 @@ RSpec.describe "Homes", type: :request do
       expect(response).to have_http_status(:success)
       expect(response.body).to eq('{}')
     end
+
+    context "with invalid location" do
+      it "returns error message" do
+        get "/?location=invalid"
+        expect(response).to have_http_status(:success)
+        expect(response.body).to include('Invalid location')
+      end
+    end
   end
 
 end
