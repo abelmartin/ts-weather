@@ -20,5 +20,11 @@
  }
 
  input{
+  font-family: 'Courier New', Courier, monospace;
   height: 3em;
+ }
+
+ body{
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1em 3em;
  }
