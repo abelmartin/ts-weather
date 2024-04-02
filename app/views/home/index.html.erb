@@ -8,12 +8,14 @@
 </p>
 <p>
   <form id='weather_request_form'>
-    <input type='text' id='address' name='address' placeholder='Address, City/Country, or Zip Code' />
+    <input type='text' id='address' name='address' value="<%= params[:address] %>" params placeholder='Address, City/Country, or Zip Code' />
     <input type='submit' id='form_button' value='Get Weather' />
   </form>
 </p>
 <% if @forecast %>
   <h2><%= @forecast[:location] %></h2>
+  <iframe width="425" height="350" src="<%= map_url %>" style="border: 1px solid black"></iframe>
+  <small><%= link_to "View Larger Map", map_link, target: '_blank' %></small>
   <% @forecast[:days].each do |day, low_high|%>
     <div class='day'>
       <h3><%= day %>

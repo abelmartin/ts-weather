@@ -21,6 +21,7 @@ class Forecaster
     # binding.pry
     {
       location: geopoint.address,
+      lat_lon: geopoint.coordinates,
       cache_key: key,
       days: lows_and_highs(days),
       expiry_seconds: $redis.ttl(key)
