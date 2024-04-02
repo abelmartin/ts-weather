@@ -14,13 +14,13 @@
 </p>
 <% if @forecast %>
   <h2><%= @forecast[:location] %></h2>
-  <% @forecast[:days].each do |day|%>
+  <% @forecast[:days].each do |day, low_high|%>
     <div class='day'>
-      <h3><%= day.description%> <%= day.emoji %></h3>
-      <p>Time: <%= day.time %></p>
-      <p>Temprature:<%= day.temperature %></p>
-      <p>Max: <%= day.temp_max %></p>
-      <p>Min: <%= day.temp_min %></p>
+      <h3><%= day %>
+      <h4><%= low_high.first.description%> <%= low_high.first.emoji %></h4>
+      <p>Day: <%= day %></p>
+      <p>Max: <%= low_high[1].temp_max.round %></p>
+      <p>Min: <%= low_high[0].temp_min.round %></p>
     </div>
     <% end %>
 <% end %>
