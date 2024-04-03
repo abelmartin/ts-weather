@@ -34,12 +34,23 @@
   padding: .5em;
  }
 
+ body{
+  font-family: 'Courier New', Courier, monospace;
+  padding: .5em 3em;
+ }
+
  input{
   font-family: 'Courier New', Courier, monospace;
   height: 3em;
  }
 
- body{
-  font-family: 'Courier New', Courier, monospace;
-  padding: .5em 3em;
+ footer{
+  background-color: rgb(191, 209, 209);
+  border-radius: 25px;
+  padding: 1em 0em;
+  text-align: center;
+ }
+
+ a{
+  font-weight: bold;
  }
