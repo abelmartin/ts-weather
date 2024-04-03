@@ -1,0 +1,7 @@
+<div class='extended_forecast_day'>
+  <h3><%= day %>
+  <h4><%= low_high.first.description%> <%= low_high.first.emoji %></h4>
+  <p>Date: <%= day %></p>
+  <p>High: <%= temp(low_high[1].temp_max) %></p>
+  <p>Low: <%= temp(low_high[0].temp_min) %></p>
+</div>

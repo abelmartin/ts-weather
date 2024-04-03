@@ -2,9 +2,14 @@
   <a href='/'>TS Weather Forcaster</a>
 </h1>
 <p>
-  Welcome to the TS Weather Forcaster.  
-  <br>
-  Please enter a zip code to get the current weather.
+  Please enter any of the following:
+  <ul>
+    <li> an address </li>
+    <li> city </li>
+    <li> city & state </li>
+    <li> city & country </li>
+  </ul>
+  ...to get the current weather for that location.
 </p>
 <p>
   <form id='weather_request_form'>
@@ -14,15 +19,16 @@
 </p>
 <% if @forecast %>
   <h2><%= @forecast[:location] %></h2>
-  <iframe width="425" height="350" src="<%= map_url %>" style="border: 1px solid black"></iframe>
-  <small><%= link_to "View Larger Map", map_link, target: '_blank' %></small>
-  <% @forecast[:days].each do |day, low_high|%>
-    <div class='day'>
-      <h3><%= day %>
-      <h4><%= low_high.first.description%> <%= low_high.first.emoji %></h4>
-      <p>Day: <%= day %></p>
-      <p>Max: <%= low_high[1].temp_max.round %></p>
-      <p>Min: <%= low_high[0].temp_min.round %></p>
+  <div id='current_day_container'>
+    <%= render 'current_day', day: @forecast[:current] %>
+    <div id='map_container'>
+      <iframe id='map' width="425" height="300" src="<%= map_url %>" style="border: 1px solid black"></iframe>
+      <%= link_to "View larger map", map_link, target: '_blank' %>
     </div>
+  </div>
+  <div id='extended_forecast_container'>
+    <% @forecast[:days].each do |day, low_high|%>
+      <%= render 'extended_forecast_day', day: day, low_high: low_high %>
     <% end %>
+  </div>
 <% end %>

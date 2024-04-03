@@ -15,3 +15,11 @@ Style/Documentation:
     - app/helpers/application_helper.rb
     - app/mailers/application_mailer.rb
     - app/models/application_record.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - app/services/forecaster.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - app/services/forecaster.rb #This method is long because it includes the payload output

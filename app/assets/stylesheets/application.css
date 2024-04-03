@@ -19,6 +19,21 @@
   width: 300px;
  }
 
+ #extended_forecast_container, #current_day_container{
+  display: flex;
+ }
+
+ #map_container a{
+  display: block;
+  margin-top: 1em;
+
+ }
+
+ #current_day, .extended_forecast_day{
+  margin-right: 2em;
+  padding: .5em;
+ }
+
  input{
   font-family: 'Courier New', Courier, monospace;
   height: 3em;
