@@ -30,6 +30,6 @@ class HomeController < ApplicationController
   private
 
   def cache_key
-    CGI::escape(params[:address])
+    "Weather query: #{CGI::escape(params[:address])}"
   end
 end
