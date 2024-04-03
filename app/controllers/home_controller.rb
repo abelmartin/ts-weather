@@ -4,7 +4,9 @@ class HomeController < ApplicationController
     if params[:address]
       # expiry_seconds: $redis.ttl(cache_key)
       begin
-        @forecast = Forecaster.call(params[:address])
+        @forecast = Rails.cache.fetch(cache_key, expires_in: 30.minutes) do
+          Forecaster.call(params[:address])
+        end
         @forecast[:cache_ttl] = $redis.ttl(cache_key)
         Rails.logger.info @forecast
       rescue ForecastError => e

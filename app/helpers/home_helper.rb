@@ -18,4 +18,19 @@ module HomeHelper
   def temp(temperature)
     "#{temperature.round}°F"
   end
+
+  def humanized_cache_ttl
+    # We'll get the ttl as a float to make decisions on how to display it
+    minutes = @forecast[:cache_ttl] / 60
+    seconds_text = "#{@forecast[:cache_ttl] % 60} #{'second'.pluralize(@forecast[:cache_ttl])}"
+
+    # With integer division, we'll always get the number of minutes.
+    # If the number of minutes is 0, we'll just display the seconds
+    # When the ttl truly hits 0, we'd refresh the cache and set a new ttl.
+    if minutes == 0
+      seconds_text
+    else
+      "#{minutes} #{'minute'.pluralize(minutes)}, #{seconds_text}"
+    end
+  end
 end

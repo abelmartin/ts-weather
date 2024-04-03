@@ -1,5 +1,4 @@
 <h2><%= @forecast[:location] %></h2>
-<h4>Cache expires in: <%= @forecast[:cache_ttl] %> seconds</h4>
 <div id='current_day_container'>
   <%= render 'current_day', day: @forecast[:current] %>
   <div id='map_container'>

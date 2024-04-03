@@ -1,6 +1,7 @@
 <div id='current_day'>
-  <h3>Today's forecast (<%= Date.today %>)</h3>
-  <h4><%= day.description%></h4>
+  <h3>Today's forecast - <%= Date.today.strftime '%A, %D'  %></h3>
+  <h4><i>(Forecast cache expires in: <%= humanized_cache_ttl %>)</i></h4>
+  <h4><%= day.description.titleize%></h4>
   <p><%= image_tag day.icon%>
   <p>Temperature: <%= temp(day.temperature) %></p>
   <p>High: <%= temp(day.temp_max) %></p>
