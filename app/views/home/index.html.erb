@@ -17,23 +17,8 @@
     <input type='submit' id='form_button' value='Get Weather' />
   </form>
 </p>
-<% if @forecast %>
-  <h2><%= @forecast[:location] %></h2>
-  <div id='current_day_container'>
-    <%= render 'current_day', day: @forecast[:current] %>
-    <div id='map_container'>
-      <iframe id='map' width="425" height="300" src="<%= map_url %>" style="border: 1px solid black"></iframe>
-      <%= link_to "View larger map", map_link, target: '_blank' %>
-    </div>
-  </div>
-  <div id='extended_forecast_container'>
-    <% @forecast[:days].each do |day, low_high|%>
-      <%= render 'extended_forecast_day', day: day, low_high: low_high %>
-    <% end %>
-  </div>
-<% end %>
 <% if @error %>
-  <h2> There was an error with your request: </h2>
-  <h3><%= @error %></h3>
-  <p> Please try again with a new request. </p>
+  <%= render 'error' %>
+<% elsif @forecast %>
+  <%= render 'forecast' %>
 <% end %>

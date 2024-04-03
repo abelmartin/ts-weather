@@ -1,6 +1,6 @@
 <div id='current_day'>
-  <h3><%= Date.today %>
-  <h4><%= day.description%> <%= day.emoji %></h4>
+  <h3>Today's forecast (<%= Date.today %>)</h3>
+  <h4><%= day.description%></h4>
   <p><%= image_tag day.icon%>
   <p>Temperature: <%= temp(day.temperature) %></p>
   <p>High: <%= temp(day.temp_max) %></p>

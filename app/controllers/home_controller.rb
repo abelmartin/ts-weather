@@ -5,9 +5,18 @@ class HomeController < ApplicationController
       # expiry_seconds: $redis.ttl(cache_key)
       begin
         @forecast = Forecaster.call(params[:address])
+        @forecast[:cache_ttl] = $redis.ttl(cache_key)
         Rails.logger.info @forecast
       rescue ForecastError => e
-        @error = e.message
+        @error = {
+          message: e.message,
+          suggested_user_action: 'Please try again with a new request.'
+        }
+      rescue Exception => e
+        @error = {
+          message: 'A server error occurred.',
+          suggested_user_action: 'Please try again later.'
+        }
       end
     end
     respond_to do |format|
@@ -19,6 +28,6 @@ class HomeController < ApplicationController
   private
 
   def cache_key
-    URI.encode_www_form(params[:address])
+    CGI::escape(params[:address])
   end
 end
