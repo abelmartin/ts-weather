@@ -32,6 +32,7 @@ It will also cache responses for 30 mins per zip code.
 ### Testing 
 * [rspec-rails](https://rubygems.org/gems/rspec-rails) - RSpec has become a standard in the Rails community and is my favoritee unit testing library
 * [webmock](https://rubygems.org/gems/webmock) - Webmock ensures that no network requests are allowed during test runs.
+* [timecop](https://rubygems.org/gems/timecop) - "A gem providing "time travel" and "time freezing" capabilities, making it dead simple to test time-dependent code." ~Timecop repository.
 
 ### Debugging
 * [pry-byebug](https://rubygems.org/gems/pry-byebug) - Helpful for setting breakpoints while building the solution

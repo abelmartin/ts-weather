@@ -34,14 +34,18 @@ group :development, :test do
   # for environment variables
   gem 'dotenv-rails'
 
-  # ensure our tests don't make real requests
-  gem 'webmock'
-
   # debugger
   gem 'pry-byebug'
+end
 
-  # for testing
+group :test do
   gem 'rspec-rails'
+
+  # locking down date and time for tests
+  gem 'timecop'
+
+  # ensure our tests don't make real requests
+  gem 'webmock'
 end
 
 group :development do

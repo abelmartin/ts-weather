@@ -61,4 +61,10 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  config.after_initialize do
+    # Set Time.now to April 3, 2024 at 10:00:00 AM.  This is aliged to the fixtures in spec/fixtures
+    time = Time.local(2024, 4, 3, 10, 0, 0)
+    Timecop.freeze(time)
+  end
 end
