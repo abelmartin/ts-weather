@@ -1,4 +1,4 @@
-class ForecastError < StandardError
+class ForecasterError < StandardError
   def initialize(msg = 'Error fetching forecast')
     super
   end

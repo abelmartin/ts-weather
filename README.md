@@ -35,7 +35,6 @@ It will also cache responses for 30 mins per zip code.
 
 ### Debugging
 * [pry-byebug](https://rubygems.org/gems/pry-byebug) - Helpful for setting breakpoints while building the solution
-* [pry-remote](https://rubygems.org/gems/pry-remote) - Allows me to set a breakpoint in my local environment when server is orchestrated from Foreman.
 
 ### Orchstration
 * [foreman](https://rubygems.org/gems/foreman) - Useful to manage both my Puma web server and my webpacker server.

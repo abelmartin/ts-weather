@@ -9,7 +9,7 @@ class HomeController < ApplicationController
         end
         @forecast[:cache_ttl] = $redis.ttl(cache_key)
         Rails.logger.info @forecast
-      rescue ForecastError => e
+      rescue ForecasterError => e
         @error = {
           message: e.message,
           suggested_user_action: 'Please try again with a new request.'

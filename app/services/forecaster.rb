@@ -12,11 +12,12 @@ class Forecaster
 
   def self.call(location)
     geopoints = Geocoder.search(location)
-    raise ForecastError, 'Invalid location' if geopoints.empty?
+    raise ForecasterError, 'Invalid location' if geopoints.empty?
 
     geopoint = geopoints.first
 
     days = client.forecast(geopoint.coordinates.reverse).forecast
+    # binding.pry
 
     {
       location: geopoint.address,

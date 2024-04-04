@@ -1,0 +1,46 @@
+{
+  "coord": {
+    "lon": -77.0365,
+    "lat": 38.895
+  },
+  "weather": [
+    {
+      "id": 501,
+      "main": "Rain",
+      "description": "moderate rain",
+      "icon": "10d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 51.1,
+    "feels_like": 50.23,
+    "temp_min": 48.99,
+    "temp_max": 52.75,
+    "pressure": 992,
+    "humidity": 92
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 9.22,
+    "deg": 350
+  },
+  "rain": {
+    "1h": 2.05
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1712173818,
+  "sys": {
+    "type": 2,
+    "id": 2002287,
+    "country": "US",
+    "sunrise": 1712141325,
+    "sunset": 1712187204
+  },
+  "timezone": -14400,
+  "id": 4140963,
+  "name": "Washington D.C.",
+  "cod": 200
+}

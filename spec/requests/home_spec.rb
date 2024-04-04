@@ -20,7 +20,8 @@ RSpec.describe "Homes", type: :request do
 
     context "with invalid location" do
       it "returns error message" do
-        get "/?location=invalid"
+        allow(Forecaster).to receive(:call).and_raise(ForecasterError.new 'Invalid location')
+        get "/?address=qwrasdfxadf"
         expect(response).to have_http_status(:success)
         expect(response.body).to include('Invalid location')
       end
