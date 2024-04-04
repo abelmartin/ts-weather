@@ -1,7 +1,9 @@
 # README
-My solution for a programming challenge.  [Try it out here](https://ts-weather-b615badbc0fe.herokuapp.com/)
+My solution for a weather report programming challenge.  [Try it out here](https://ts-weather-b615badbc0fe.herokuapp.com/)
 
-## The prompt
+![Screenshot](public/project-screenshot.png)
+
+## The programming challenge prompt
 * Accept an address as input
 * Retrieve forecast data for the given address. This should include, at minimum, the current temperature (Bonus points - Retrieve high/low and/or extended forecast)
 * Display the requested forecast details to the user
