@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Series of helper methods to assist with the view
 module HomeHelper
   def map_url
     root = 'https://www.openstreetmap.org/export/embed.html'
@@ -27,7 +30,7 @@ module HomeHelper
     # With integer division, we'll always get the number of minutes.
     # If the number of minutes is 0, we'll just display the seconds
     # When the ttl truly hits 0, we'd refresh the cache and set a new ttl.
-    if minutes == 0
+    if minutes.zero?
       seconds_text
     else
       "#{minutes} #{'minute'.pluralize(minutes)}, #{seconds_text}"

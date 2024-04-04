@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Our sole controller for weather forecasting.
 class HomeController < ApplicationController
   def index
     # Make the call to the Forecaster service
@@ -14,7 +17,7 @@ class HomeController < ApplicationController
           message: e.message,
           suggested_user_action: 'Please try again with a new request.'
         }
-      rescue Exception => e
+      rescue StandardError
         @error = {
           message: 'A server error occurred.',
           suggested_user_action: 'Please try again later.'
@@ -30,6 +33,6 @@ class HomeController < ApplicationController
   private
 
   def cache_key
-    "Weather query: #{CGI::escape(params[:address])}"
+    "Weather query: #{CGI.escape(params[:address])}"
   end
 end

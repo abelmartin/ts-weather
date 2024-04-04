@@ -12,8 +12,8 @@ RSpec.describe Forecaster do
 
   before do
     stub_request(:get, /openstreetmap/).to_return(body: geocode_json)
-    stub_request(:get, /openweathermap.*forecast/). to_return(body: forecast_json)
-    stub_request(:get, /openweathermap.*weather/). to_return(body: current_day)
+    stub_request(:get, /openweathermap.*forecast/).to_return(body: forecast_json)
+    stub_request(:get, /openweathermap.*weather/).to_return(body: current_day)
   end
 
   describe '.client' do
@@ -22,18 +22,20 @@ RSpec.describe Forecaster do
     end
 
     it 'has exepcted attributes' do
-      expect(subject.client).to have_attributes(lang: "en", units: "imperial")
+      expect(subject.client).to have_attributes(lang: 'en', units: 'imperial')
     end
   end
 
   describe '.call' do
     it 'returns expected weather response' do
-      expect(subject.call(address)).to match({
-        location: 'Washington, District of Columbia, United States',
-        current: be_kind_of(OpenWeatherMap::WeatherConditions),
-        lat_lon: [38.8950368, -77.0365427],
-        days: be_kind_of(Hash)
-      })
+      expect(subject.call(address)).to match(
+        {
+          location: 'Washington, District of Columbia, United States',
+          current: be_kind_of(OpenWeatherMap::WeatherConditions),
+          lat_lon: [38.8950368, -77.0365427],
+          days: be_kind_of(Hash)
+        }
+      )
     end
 
     it 'the exepected hash in the days key' do
@@ -70,7 +72,7 @@ RSpec.describe Forecaster do
     it 'returns the first item in a day\'s array for a day as the lowest temp of all the hours' do
       # the first item should be the lowest temp across all of the temp_min for a given day.
       expect(tomorrow_values[0].temp_min).to eq(
-        forecast_days.filter{|day| day.time.to_date == Date.tomorrow}
+        forecast_days.filter { |day| day.time.to_date == Date.tomorrow }
         .min_by(&:temp_min).temp_min
       )
     end
@@ -78,7 +80,7 @@ RSpec.describe Forecaster do
     it 'returns the last item in a day\'s array for a day as the highest temp of all the hours' do
       # the first item should be the lowest temp across all of the temp_min for a given day.
       expect(tomorrow_values[1].temp_max).to eq(
-        forecast_days.filter{|day| day.time.to_date == Date.tomorrow}
+        forecast_days.filter { |day| day.time.to_date == Date.tomorrow }
         .max_by(&:temp_max).temp_max
       )
     end

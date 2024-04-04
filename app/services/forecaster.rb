@@ -29,7 +29,7 @@ class Forecaster
 
   def self.lows_and_highs(forecast_days)
     # We'll exclude the current day since we have another API call for that
-    forecast_days = forecast_days.reject{|d| d.time.to_date == Date.today}
+    forecast_days = forecast_days.reject { |d| d.time.to_date == Date.today }
 
     # Let's start by grouping the days by date
     grouped_days = forecast_days.group_by { |day| day.time.to_date }
