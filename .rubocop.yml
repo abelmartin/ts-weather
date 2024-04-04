@@ -23,3 +23,11 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Exclude:
     - app/services/forecaster.rb #This method is long because it includes the payload output
+
+BlockLength:
+  Exclude:
+    - spec/**/* #These are test files and are expected to be long
+
+Style/GlobalVars:
+  Exclude:
+    - app/controllers/home_controller.rb #This is a controller and it is expected to use the global Redis variable

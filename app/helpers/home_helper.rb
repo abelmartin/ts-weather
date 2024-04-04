@@ -6,7 +6,6 @@ module HomeHelper
     root = 'https://www.openstreetmap.org/export/embed.html'
     map_coords = @forecast[:lat_lon].reverse.join(',')
     params = {
-      # bbox: '-73.96395206451417,40.75717253693376,-73.90730381011964,40.786845400329625'
       bbox: "#{map_coords},#{map_coords}"
     }
 
