@@ -1,20 +1,12 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'geocoder/results/nominatim'
 
 RSpec.describe Forecaster do
+  include_context 'shared network context'
+
   subject { described_class }
   let(:address) { 'Washington, DC' }
-  let(:geocode_json) { File.read('spec/fixtures/geocode.json') }
-  let(:forecast_json) { File.read('spec/fixtures/forecast.json') }
-  let(:current_day) { File.read('spec/fixtures/current_day.json') }
-
-  before do
-    stub_request(:get, /openstreetmap/).to_return(body: geocode_json)
-    stub_request(:get, /openweathermap.*forecast/).to_return(body: forecast_json)
-    stub_request(:get, /openweathermap.*weather/).to_return(body: current_day)
-  end
 
   describe '.client' do
     it 'returns an instance of OpenWeatherMap::API' do

@@ -4,28 +4,24 @@
 class HomeController < ApplicationController
   def index
     # Make the call to the Forecaster service
-    if params[:address]
-      # expiry_seconds: $redis.ttl(cache_key)
-      begin
-        @forecast = Rails.cache.fetch(cache_key, expires_in: 30.minutes) do
-          Forecaster.call(params[:address])
-        end
-        @forecast[:cache_ttl] = $redis.ttl(cache_key)
-        Rails.logger.info @forecast
-      rescue ForecasterError => e
-        @error = {
-          message: e.message,
-          suggested_user_action: 'Please try again with a new request.'
-        }
-      rescue StandardError
-        @error = {
-          message: 'A server error occurred.',
-          suggested_user_action: 'Please try again later.'
-        }
+    return unless params[:address]
+
+    begin
+      @forecast = Rails.cache.fetch(cache_key, expires_in: 30.minutes) do
+        Forecaster.call(params[:address])
       end
-    end
-    respond_to do |format|
-      format.html
+      @forecast[:cache_ttl] = $redis.ttl(cache_key)
+      Rails.logger.info @forecast
+    rescue ForecasterError => e
+      @error = {
+        message: e.message,
+        suggested_user_action: 'Please try again with a new request.'
+      }
+    rescue StandardError
+      @error = {
+        message: 'A server error occurred.',
+        suggested_user_action: 'Please try again later.'
+      }
     end
   end
 

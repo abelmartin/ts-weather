@@ -21,8 +21,7 @@ Metrics/AbcSize:
     - app/services/forecaster.rb
 
 Metrics/MethodLength:
-  Exclude:
-    - app/services/forecaster.rb #This method is long because it includes the payload output
+  Max: 20 # The default was too small
 
 BlockLength:
   Exclude:
