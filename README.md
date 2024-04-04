@@ -27,7 +27,7 @@ It will also cache responses for 30 mins per zip code.
 * [openweathermap](https://rubygems.org/gems/openweathermap) - Provides a clean way to get forecast data from [OpenWeatherMap](https://openweathermap.org/)'s API.  OpenWeatherMap's call limits on the [free tier are very flexible](https://openweathermap.org/price#:~:text=60%20calls/minute%0A1%2C000%2C000%20calls/month)
 
 ### Address validation
-* [geocoder](https://www.rubygeocoder.com/) - I'll ensure the address passed in is valid before I make the call to OpenWeatherMap
+* [geocoder](https://www.rubygeocoder.com/) - I'll ensure the address passed in is valid before I make the call to OpenWeatherMap.  I'll be using the lat/long in the response in my OpenWeatherMap call.
 
 ### Testing 
 * [rspec-rails](https://rubygems.org/gems/rspec-rails) - RSpec has become a standard in the Rails community and is my favoritee unit testing library
@@ -61,8 +61,13 @@ gem install bundler
 ```
 4. Run `bundle install`
 - This will install all required gems for the app.
-5. Run `foreman start -f Procfile.dev`
+
+5. Copy the [.env-sample](https://github.com/abelmartin/ts-weather/blob/main/.env-sample) and save it as `.env`.  You'll need to get an API key for OpenWeatherMap for this solution to work.  The `Raygun` API key is a nice to have for error reporting that isn't a necessity.
+
+6. Run `foreman start -f Procfile.dev`
 
 ## Running the test suite
 
 After running installing Ruby & Bundler as outlined in the `Get started` section above, run `bundle exec rspec` to run the suite of tests I wrote for this project.
+
+If you'd like you can also run `bundle exec rubocop` to see how I've stayed in Ruby best practices.  Adjustments I've made to Rubocop can be found [here](https://github.com/abelmartin/ts-weather/blob/main/.rubocop.yml)
