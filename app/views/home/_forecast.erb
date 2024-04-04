@@ -3,7 +3,7 @@
   <%= render 'current_day', day: @forecast[:current] %>
   <div id='map_container'>
     <iframe id='map' width="425" height="300" src="<%= map_url %>" style="border: 1px solid black"></iframe>
-    <%= link_to "View larger map", map_link, target: '_blank' %>
+    <br/> Note: You may need to zoom out to see familiar parts of the map. <%= link_to "View larger map", map_link, target: '_blank' %>
   </div>
 </div>
 <div id='extended_forecast_container'>
